@@ -79,9 +79,6 @@ Comprehensive error handling with descriptive messages for various scenarios.
 - Transaction management
 - Optimistic locking for seat bookings
 
-## Contributing
-Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
-
 ## License
 This project is licensed under the MIT License.
 ```
