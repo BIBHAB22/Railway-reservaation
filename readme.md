@@ -99,5 +99,3 @@ Key Features:
 - Secure admin routes with API key
 - JWT-based authentication
 - MySQL database with optimized queries
-
-Would you like me to elaborate on any specific part of the implementation or explain any design decisions?
