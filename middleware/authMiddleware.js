@@ -13,7 +13,7 @@ const authenticateUser = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     
     // Check if user exists
-    const [users] = await pool.query('SELECT * FROM users WHERE id = ?', [decoded.userId]);
+    const [users] = await pool.query('SELECT * FROM users WHERE username = ?', [decoded.username]);
     
     if (users.length === 0) {
       return res.status(401).json({ message: 'Invalid token' });

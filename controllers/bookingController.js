@@ -127,6 +127,7 @@ exports.bookSeat = async (req, res) => {
 };
 
 // Get user's booking history
+// Get user's booking history
 exports.getUserBookings = async (req, res) => {
   try {
     const user_id = req.user.id;
@@ -134,7 +135,7 @@ exports.getUserBookings = async (req, res) => {
     // Fetch comprehensive booking details
     const [bookings] = await pool.query(`
       SELECT 
-        b.id AS booking_id, 
+        b.id AS id, 
         b.seats_booked, 
         b.booking_date,
         t.train_name,
@@ -145,7 +146,7 @@ exports.getUserBookings = async (req, res) => {
       JOIN trains t ON b.train_id = t.id
       WHERE b.user_id = ?
       ORDER BY b.booking_date DESC
-      LIMIT 50  // Limit to prevent overwhelming response
+      LIMIT 50
     `, [user_id]);
 
     // Calculate total booked seats
@@ -165,7 +166,6 @@ exports.getUserBookings = async (req, res) => {
     });
   }
 };
-
 // Cancel a specific booking (optional feature)
 exports.cancelBooking = async (req, res) => {
   const connection = await pool.getConnection();

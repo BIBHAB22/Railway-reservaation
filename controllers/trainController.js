@@ -40,7 +40,7 @@ exports.updateTrainSeats = async (req, res) => {
   try {
     // Add validation for seats_to_add here if needed
     const [result] = await pool.query(
-      'UPDATE trains SET available_seats = available_seats + ? WHERE train_id = ?',
+      'UPDATE trains SET available_seats = available_seats + ? WHERE id = ?',
       [seats_to_add, trainId]
     );
 
